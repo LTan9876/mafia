@@ -17,6 +17,14 @@ const Script = require('./script')
  * for example, we can say: const {User} = require('../db/models')
  * instead of: const User = require('../db/models/user')
  */
+
+Role.hasOne(User)
+
+Game.hasMany(User)
+
+Game.belongsToMany(Action, {through: 'Action_Game'})
+Action.belongsToMany(Script, {through: 'Action_Script'})
+
 module.exports = {
   User,
   Game,
