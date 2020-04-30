@@ -1,18 +1,37 @@
 'use strict'
 
 const db = require('../server/db')
-const {User} = require('../server/db/models')
+const {User, Game, Role, Action, Script} = require('../server/db/models')
 
 async function seed() {
   await db.sync({force: true})
   console.log('db synced!')
 
   const users = await Promise.all([
-    User.create({email: 'cody@email.com', password: '123'}),
-    User.create({email: 'murphy@email.com', password: '123'})
+    User.create({name: 'Player1'}),
+    User.create({name: 'Player2'})
+  ])
+
+  const roles = await Promise.all([
+    Role.create({name: 'Civilian'}),
+    Role.create({name: 'Mafia'}),
+    Role.create({name: 'Doctor'})
+  ])
+
+  const actions = await Promise.all([
+    Action.create({phase: 'day', timer: 300, move: 1})
+  ])
+
+  const scripts = await Promise.all([
+    Script.create({
+      script: 'Last night, someone was murdered'
+    })
   ])
 
   console.log(`seeded ${users.length} users`)
+  console.log(`seeded ${roles.length} roles`)
+  console.log(`seeded ${actions.length} roles`)
+  console.log(`seeded ${scripts.length} roles`)
   console.log(`seeded successfully`)
 }
 

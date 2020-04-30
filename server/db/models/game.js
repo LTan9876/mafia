@@ -3,12 +3,10 @@ const db = require('../db')
 
 const Game = db.define('game', {
   inSession: {
-    type: Sequelize.BOOLEAN,
-    allowNull: false
+    type: Sequelize.BOOLEAN
   },
   password: {
-    type: Sequelize.STRING,
-    allowNull: false
+    type: Sequelize.STRING
   },
   status: {
     type: Sequelize.BOOLEAN
