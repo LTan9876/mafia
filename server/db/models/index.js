@@ -18,8 +18,7 @@ const Script = require('./script')
  * instead of: const User = require('../db/models/user')
  */
 
-Role.hasOne(User)
-
+Role.hasMany(User)
 Game.hasMany(User)
 
 Game.belongsToMany(Action, {through: 'Action_Game'})
