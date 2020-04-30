@@ -24,7 +24,28 @@ async function seed() {
 
   const scripts = await Promise.all([
     Script.create({
-      script: 'Last night, someone was murdered'
+      id: 1,
+      script: `It's time to get to know each other.  Everyone, close your eyes.`
+    }),
+    Script.create({
+      id: 2,
+      script: `Mafia, open your eyes.  Choose someone to kill.`
+    }),
+    Script.create({
+      id: 3,
+      script: `Detective, open your eyes.  Choose someone to inspect.`
+    }),
+    Script.create({
+      id: 4,
+      script: `Doctor, open your eyes.  Choose someone to save.`
+    }),
+    Script.create({
+      id: 5,
+      script: `Everyone wake up.  Last night, someone was murdered.`
+    }),
+    Script.create({
+      id: 6,
+      script: `Choose the killer.`
     })
   ])
 
