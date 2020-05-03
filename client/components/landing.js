@@ -1,13 +1,15 @@
-import React from 'react'
+import React, {Component} from 'react'
 import styled from 'styled-components'
 
-const Landing = () => {
-  return (
-    <Wrapper>
-      <Header>Welcome to Mafia</Header>
-      <Button>Start A Game</Button>
-    </Wrapper>
-  )
+class Landing extends Component {
+  render() {
+    return (
+      <Wrapper>
+        <Header>Welcome to Mafia</Header>
+        <Button>Start A Game</Button>
+      </Wrapper>
+    )
+  }
 }
 
 const Wrapper = styled.div`
