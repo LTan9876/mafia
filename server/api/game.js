@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const {Game} = require('..db/models')
+const {Game} = require('../db/models')
 
 router.post('/', async (req, res, next) => {
   try {
