@@ -1,12 +1,23 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
+import axios from 'axios'
 
 class Landing extends Component {
+  constructor() {
+    super()
+    this.startNewGame = this.startNewGame.bind(this)
+  }
+
+  async startNewGame() {
+    let {data} = await axios.post('/api/game')
+    console.log('!!!', data.id)
+  }
+
   render() {
     return (
       <Wrapper>
         <Header>Welcome to Mafia</Header>
-        <Button>Start A Game</Button>
+        <Button onClick={this.startNewGame}>Start A Game</Button>
       </Wrapper>
     )
   }
