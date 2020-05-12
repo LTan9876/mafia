@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import history from '../history'
 
 class Landing extends Component {
   constructor() {
@@ -10,14 +11,17 @@ class Landing extends Component {
 
   async startNewGame() {
     let {data} = await axios.post('/api/game')
-    console.log('!!!', data.id)
+    history.push(`/game/${data.id}`)
   }
 
   render() {
     return (
       <Wrapper>
         <Header>Welcome to Mafia</Header>
-        <Button onClick={this.startNewGame}>Start A Game</Button>
+        <ButtonWrapper>
+          <Button onClick={this.startNewGame}>Start A Game</Button>
+          <Button>Join A Game</Button>
+        </ButtonWrapper>
       </Wrapper>
     )
   }
@@ -38,6 +42,11 @@ const Button = styled.button`
   padding: 0.25em 1em;
   border: 5px solid black;
   border-radius: 3px;
+`
+const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `
 
 export default Landing

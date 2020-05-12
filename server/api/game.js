@@ -10,4 +10,6 @@ router.post('/', async (req, res, next) => {
   }
 })
 
+//router.put for details component
+
 module.exports = router
